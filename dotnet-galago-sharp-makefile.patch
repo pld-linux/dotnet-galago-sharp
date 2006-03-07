@@ -1,0 +1,9 @@
+diff -aurN galago-sharp-0.3.2.orig/Makefile.am galago-sharp-0.3.2/Makefile.am
+--- galago-sharp-0.3.2.orig/Makefile.am	2005-04-04 01:54:16.000000000 +0200
++++ galago-sharp-0.3.2/Makefile.am	2006-03-07 18:07:59.862091440 +0100
+@@ -1,4 +1,4 @@
+-SUBDIRS = debian galago tests
++SUBDIRS = galago
+ 
+ pcdata_DATA= galago-sharp.pc
+ pcdatadir = $(libdir)/pkgconfig
