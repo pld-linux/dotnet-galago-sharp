@@ -1,4 +1,4 @@
-%include        /usr/lib/rpm/macros.mono
+%include	/usr/lib/rpm/macros.mono
 Summary:	.NET language bindings for Galago
 Summary(pl):	Wi±zania Galago dla .NET
 Name:		dotnet-galago-sharp
