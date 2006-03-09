@@ -34,23 +34,11 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	libgalago-devel >= 0.3.2
 
 %description devel
-Tools for developing applications using .
+Tools for developing applications using galago-sharp.
 
 %description devel -l pl
 Narzêdzia potrzebne przy tworzeniu aplikacji korzystaj±cych z
 galago-sharp.
-
-%package static
-Summary:	Static galago-sharp libraries
-Summary(pl):	Biblioteki statyczne galago-sharp
-Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
-
-%description static
-Static galago-sharp libraries.
-
-%description static -l pl
-Biblioteki statyczne galago-sharp.
 
 %prep
 %setup -qn galago-sharp-%{version}
