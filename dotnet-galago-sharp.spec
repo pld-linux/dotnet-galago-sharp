@@ -13,6 +13,7 @@ Patch1:		%{name}-pkgconfig.patch
 Patch2:		%{name}-destdir.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	dotnet-dbus-sharp-devel
 BuildRequires:	libgalago-devel >= 0.3.2
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 0.96
