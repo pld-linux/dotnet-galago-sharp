@@ -3,7 +3,7 @@ Summary:	.NET language bindings for Galago
 Summary(pl):	Wi±zania Galago dla .NET
 Name:		dotnet-galago-sharp
 Version:	0.3.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.galago-project.org/files/releases/source/galago-sharp/galago-sharp-%{version}.tar.gz
@@ -54,13 +54,15 @@ galago-sharp.
 %{__autoheader}
 %{__automake}
 %configure
-%{__make}
+%{__make} \
+	gapidir='%{_datadir}/gapi-2.0'
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	gapidir='%{_datadir}/gapi-2.0'
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -73,5 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_prefix}/lib/mono/galago-sharp
-%{_datadir}/gapi/*
+%{_datadir}/gapi-2.0/*
 %{_pkgconfigdir}/*.pc
