@@ -18,7 +18,8 @@ BuildRequires:	libgalago-devel >= 0.3.2
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 0.96
 BuildRequires:	pkgconfig
-ExcludeArch:	i386 alpha sparc sparc64
+ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x
+ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
