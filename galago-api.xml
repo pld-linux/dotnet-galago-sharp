@@ -1,0 +1,1473 @@
+<?xml version="1.0"?>
+<api
+  ><!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+--><namespace name="Galago" library="libgalago">
+    <enum name="InitFlags" cname="GalagoInitFlags" gtype="galago_init_flags_get_type" type="flags">
+      <member cname="GALAGO_INIT_CLIENT" name="Client" />
+      <member cname="GALAGO_INIT_FEED" name="Feed" value="1 &lt;&lt; 0" />
+      <member cname="GALAGO_INIT_NO_ACTIVATION" name="NoActivation" value="1 &lt;&lt; 1" />
+    </enum>
+    <enum name="ObjectFlags" cname="GalagoObjectFlags" gtype="galago_object_flags_get_type" type="enum">
+      <member cname="GALAGO_OBJECT_IN_DESTRUCTION" name="InDestruction" value="1" />
+      <member cname="GALAGO_OBJECT_RESERVED_1" name="Reserved1" value="2" />
+      <member cname="GALAGO_OBJECT_RESERVED_2" name="Reserved2" value="4" />
+    </enum>
+    <enum name="Origin" cname="GalagoOrigin" gtype="galago_origin_get_type" type="enum">
+      <member cname="GALAGO_LOCAL" name="Local" />
+      <member cname="GALAGO_REMOTE" name="Remote" />
+    </enum>
+    <enum name="ServiceFlags" cname="GalagoServiceFlags" gtype="galago_service_flags_get_type" type="flags">
+      <member cname="GALAGO_PRESERVE_SPACES" name="PreserveSpaces" value="1 &lt;&lt; 0" />
+      <member cname="GALAGO_PRESERVE_CASE" name="PreserveCase" value="1 &lt;&lt; 1" />
+      <member cname="GALAGO_STRIP_SLASH" name="StripSlash" value="1 &lt;&lt; 2" />
+    </enum>
+    <enum name="StatusType" cname="GalagoStatusType" gtype="galago_status_type_get_type" type="enum">
+      <member cname="GALAGO_STATUS_UNSET" name="Unset" />
+      <member cname="GALAGO_STATUS_OFFLINE" name="Offline" />
+      <member cname="GALAGO_STATUS_AVAILABLE" name="Available" />
+      <member cname="GALAGO_STATUS_AWAY" name="Away" />
+      <member cname="GALAGO_STATUS_EXTENDED_AWAY" name="ExtendedAway" />
+      <member cname="GALAGO_STATUS_HIDDEN" name="Hidden" />
+    </enum>
+    <enum name="Type" cname="GalagoType" gtype="galago_type_get_type" type="enum">
+      <member cname="GALAGO_VALUE_TYPE_UNKNOWN" name="Unknown" />
+      <member cname="GALAGO_VALUE_TYPE_CHAR" name="Char" />
+      <member cname="GALAGO_VALUE_TYPE_UCHAR" name="Uchar" />
+      <member cname="GALAGO_VALUE_TYPE_BOOLEAN" name="Boolean" />
+      <member cname="GALAGO_VALUE_TYPE_SHORT" name="Short" />
+      <member cname="GALAGO_VALUE_TYPE_USHORT" name="Ushort" />
+      <member cname="GALAGO_VALUE_TYPE_INT" name="Int" />
+      <member cname="GALAGO_VALUE_TYPE_UINT" name="Uint" />
+      <member cname="GALAGO_VALUE_TYPE_LONG" name="Long" />
+      <member cname="GALAGO_VALUE_TYPE_ULONG" name="Ulong" />
+      <member cname="GALAGO_VALUE_TYPE_STRING" name="String" />
+      <member cname="GALAGO_VALUE_TYPE_OBJECT" name="Object" />
+      <member cname="GALAGO_VALUE_TYPE_POINTER" name="Pointer" />
+      <member cname="GALAGO_VALUE_TYPE_LIST" name="List" />
+      <member cname="GALAGO_VALUE_TYPE_ARRAY" name="Array" />
+    </enum>
+    <object name="Account" cname="GalagoAccount" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoAccountPrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <signal name="ConnectionStateChanged" cname="connection_state_changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="DisplayNameChanged" cname="display_name_changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="PresenceCreated" cname="presence_created" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+          <parameter type="GalagoPresence*" name="presence" />
+        </parameters>
+      </signal>
+      <signal name="PresenceDeleted" cname="presence_deleted" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="AvatarSet" cname="avatar_set" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+          <parameter type="GalagoImage*" name="image" />
+        </parameters>
+      </signal>
+      <signal name="ContactAdded" cname="contact_added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+          <parameter type="GalagoAccount*" name="contact" />
+        </parameters>
+      </signal>
+      <signal name="ContactRemoved" cname="contact_removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="account" />
+          <parameter type="GalagoAccount*" name="contact" />
+        </parameters>
+      </signal>
+      <property name="Service" cname="service" type="GalagoService" readable="true" writeable="true" construct-only="true" />
+      <property name="Person" cname="person" type="GalagoPerson" readable="true" writeable="true" construct-only="true" />
+      <property name="Presence" cname="presence" type="GalagoPresence" readable="true" />
+      <property name="Avatar" cname="avatar" type="GalagoImage" readable="true" writeable="true" />
+      <property name="Username" cname="username" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="DisplayName" cname="display-name" type="gchar*" readable="true" writeable="true" />
+      <property name="Connected" cname="connected" type="gboolean" readable="true" writeable="true" />
+      <method name="AddContact" cname="galago_account_add_contact">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="contact" />
+        </parameters>
+      </method>
+      <method name="CreatePresence" cname="galago_account_create_presence">
+        <return-type type="GalagoPresence*" />
+      </method>
+      <method name="GetAvatar" cname="galago_account_get_avatar">
+        <return-type type="GalagoImage*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetContact" cname="galago_account_get_contact">
+        <return-type type="GalagoAccount*" />
+        <parameters>
+          <parameter type="const-char*" name="username" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetContacts" cname="galago_account_get_contacts">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetDisplayName" cname="galago_account_get_display_name">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetPerson" cname="galago_account_get_person">
+        <return-type type="GalagoPerson*" />
+      </method>
+      <method name="GetPresence" cname="galago_account_get_presence">
+        <return-type type="GalagoPresence*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetService" cname="galago_account_get_service">
+        <return-type type="GalagoService*" />
+      </method>
+      <method name="GetType" cname="galago_account_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUsername" cname="galago_account_get_username">
+        <return-type type="const-char*" />
+      </method>
+      <method name="IsConnected" cname="galago_account_is_connected">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsDisplayNameSet" cname="galago_account_is_display_name_set">
+        <return-type type="gboolean" />
+      </method>
+      <method name="RemoveContact" cname="galago_account_remove_contact">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoAccount*" name="contact" />
+        </parameters>
+      </method>
+      <method name="SetAvatar" cname="galago_account_set_avatar">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoImage*" name="avatar" />
+        </parameters>
+      </method>
+      <method name="SetConnected" cname="galago_account_set_connected">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="connected" />
+        </parameters>
+      </method>
+      <method name="SetDisplayName" cname="galago_account_set_display_name">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="display_name" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Context" cname="GalagoContext" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoContextPrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <method name="AddObject" cname="galago_context_add_object" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="obj" />
+        </parameters>
+      </method>
+      <method name="AddPerson" cname="galago_context_add_person" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </method>
+      <method name="AddService" cname="galago_context_add_service" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </method>
+      <method name="ClearObjects" cname="galago_context_clear_objects" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="Get" cname="galago_context_get" shared="true">
+        <return-type type="GalagoContext*" />
+      </method>
+      <method name="GetObjPathPrefix" cname="galago_context_get_obj_path_prefix" shared="true">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetObject" cname="galago_context_get_object" shared="true">
+        <return-type type="GalagoObject*" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+        </parameters>
+      </method>
+      <method name="GetPeople" cname="galago_context_get_people" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="GetPerson" cname="galago_context_get_person" shared="true">
+        <return-type type="GalagoPerson*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="GetPersonWithSessionId" cname="galago_context_get_person_with_session_id" shared="true">
+        <return-type type="GalagoPerson*" />
+        <parameters>
+          <parameter type="const-char*" name="session_id" />
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="GetService" cname="galago_context_get_service" shared="true">
+        <return-type type="GalagoService*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="GetServices" cname="galago_context_get_services" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="galago_context_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="galago_context_new" />
+      <method name="Pop" cname="galago_context_pop" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Push" cname="galago_context_push">
+        <return-type type="void" />
+      </method>
+      <method name="RemoveObject" cname="galago_context_remove_object" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="obj" />
+        </parameters>
+      </method>
+      <method name="RemovePerson" cname="galago_context_remove_person" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </method>
+      <method name="RemoveService" cname="galago_context_remove_service" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </method>
+      <method name="SetObjPathPrefix" cname="galago_context_set_obj_path_prefix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="prefix" />
+        </parameters>
+      </method>
+      <method name="SetOps" cname="galago_context_set_ops">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoContextOps*" name="ops" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Core" cname="GalagoCore" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoCorePrivate*" />
+      <signal name="Registered" cname="registered" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+        </parameters>
+      </signal>
+      <signal name="Unregistered" cname="unregistered" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+        </parameters>
+      </signal>
+      <signal name="ServiceAdded" cname="service_added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </signal>
+      <signal name="ServiceRemoved" cname="service_removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </signal>
+      <signal name="PersonAdded" cname="person_added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </signal>
+      <signal name="PersonRemoved" cname="person_removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </signal>
+      <signal name="CalcPriorityAccount" cname="calc_priority_account" when="LAST">
+        <return-type type="GalagoAccount*" />
+        <parameters>
+          <parameter type="GalagoCore*" name="core" />
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </signal>
+      <method name="GetType" cname="galago_core_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="Image" cname="GalagoImage" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoImagePrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <property name="ImageData" cname="image-data" type="gpointer" readable="true" writeable="true" construct-only="true" />
+      <virtual_method name="ImageDataSet" cname="image_data_set">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoImage*" name="image" />
+        </parameters>
+      </virtual_method>
+      <method name="GetData" cname="galago_image_get_data">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guchar**" name="ret_data" />
+          <parameter type="gsize*" name="ret_len" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="galago_image_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="galago_image_new_from_data">
+        <parameters>
+          <parameter type="const-guchar*" name="data" />
+          <parameter type="gsize" name="len" />
+        </parameters>
+      </constructor>
+      <constructor cname="galago_image_new_from_file">
+        <parameters>
+          <parameter type="const-gchar*" name="filename" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="Object" cname="GalagoObject" parent="GObject">
+      <field name="Flags" cname="flags" type="guint32" />
+      <field name="Priv" cname="priv" type="GalagoObjectPrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <signal cname="destroy" when="CLEANUP" name="Destroyed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="object" />
+        </parameters>
+      </signal>
+      <property name="Context" cname="context" type="gpointer" readable="true" />
+      <property name="Origin" cname="origin" type="GalagoOrigin" readable="true" writeable="true" construct-only="true" />
+      <property name="SupportsAttrs" cname="supports-attrs" type="gboolean" readable="true" />
+      <virtual_method name="DbusMessageAppend" cname="dbus_message_append">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="const-GalagoObject*" name="object" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="DbusMessageGet" cname="dbus_message_get">
+        <return-type type="void*" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="DbusPushFull" cname="dbus_push_full">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="object" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="DbusGetSignature" cname="dbus_get_signature">
+        <return-type type="gchar*" />
+      </virtual_method>
+      <virtual_method name="SetAttribute" cname="set_attribute">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="RemoveAttribute" cname="remove_attribute">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="GetAttributes" cname="get_attributes">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+        </parameters>
+      </virtual_method>
+      <method name="Destroy" cname="galago_object_destroy" hidden="1">
+        <return-type type="void" />
+      </method>
+      <method name="GetAttrBool" cname="galago_object_get_attr_bool">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetAttrDouble" cname="galago_object_get_attr_double">
+        <return-type type="gdouble" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetAttrInt" cname="galago_object_get_attr_int">
+        <return-type type="gint32" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetAttrString" cname="galago_object_get_attr_string">
+        <return-type type="const-char*" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetAttribute" cname="galago_object_get_attribute" hidden="1">
+        <return-type type="const-GValue*" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetAttributes" cname="galago_object_get_attributes">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetContext" cname="galago_object_get_context">
+        <return-type type="GalagoContext*" />
+      </method>
+      <method cname="galago_object_get_dbus_path" name="GetDBusPath">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetHasAttribute" cname="galago_object_get_has_attribute">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetOrigin" cname="galago_object_get_origin">
+        <return-type type="GalagoOrigin" />
+      </method>
+      <method name="GetType" cname="galago_object_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="IsWatched" cname="galago_object_is_watched">
+        <return-type type="gboolean" />
+      </method>
+      <method name="RemoveAttribute" cname="galago_object_remove_attribute">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+        </parameters>
+      </method>
+      <method name="SetAttrBool" cname="galago_object_set_attr_bool">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+          <parameter type="gboolean" name="value" />
+        </parameters>
+      </method>
+      <method name="SetAttrDouble" cname="galago_object_set_attr_double">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+          <parameter type="gdouble" name="value" />
+        </parameters>
+      </method>
+      <method name="SetAttrInt" cname="galago_object_set_attr_int">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+          <parameter type="gint32" name="value" />
+        </parameters>
+      </method>
+      <method name="SetAttrString" cname="galago_object_set_attr_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+          <parameter type="const-char*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetAttribute" cname="galago_object_set_attribute" hidden="1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="name" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </method>
+      <method cname="galago_object_set_dbus_path" name="SetDBusPath">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="obj_path" />
+        </parameters>
+      </method>
+      <method name="SetWatch" cname="galago_object_set_watch">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="watch" />
+        </parameters>
+      </method>
+      <method name="TypeGetDbusSignature" cname="galago_object_type_get_dbus_signature" shared="true" hidden="1">
+        <return-type type="const-gchar*" />
+        <parameters>
+          <parameter type="GType" name="type" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Person" cname="GalagoPerson" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoPersonPrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <signal name="AccountAdded" cname="account_added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="AccountRemoved" cname="account_removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="PhotoSet" cname="photo_set" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+          <parameter type="GalagoImage*" name="photo" />
+        </parameters>
+      </signal>
+      <property name="Id" cname="id" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="SessionId" cname="session-id" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="Photo" cname="photo" type="GalagoImage" readable="true" writeable="true" />
+      <method name="GetAccount" cname="galago_person_get_account">
+        <return-type type="GalagoAccount*" />
+        <parameters>
+          <parameter type="const-GalagoService*" name="service" />
+          <parameter type="const-char*" name="username" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetAccounts" cname="galago_person_get_accounts">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetDisplayName" cname="galago_person_get_display_name">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetId" cname="galago_person_get_id">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetPhoto" cname="galago_person_get_photo">
+        <return-type type="GalagoImage*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetPriorityAccount" cname="galago_person_get_priority_account">
+        <return-type type="GalagoAccount*" />
+      </method>
+      <method name="GetSessionId" cname="galago_person_get_session_id">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="galago_person_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="HasAccounts" cname="galago_person_has_accounts">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="IsMe" cname="galago_person_is_me">
+        <return-type type="gboolean" />
+      </method>
+      <method name="SetMe" cname="galago_person_set_me">
+        <return-type type="void" />
+      </method>
+      <method name="SetPhoto" cname="galago_person_set_photo">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoImage*" name="photo" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Presence" cname="GalagoPresence" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoPresencePrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <signal name="IdleChanged" cname="idle_changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+          <parameter type="gboolean" name="idle" />
+          <parameter type="time_t" name="idle_start_time" />
+        </parameters>
+      </signal>
+      <signal name="StatusAdded" cname="status_added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+          <parameter type="GalagoStatus*" name="status" />
+        </parameters>
+      </signal>
+      <signal name="StatusRemoved" cname="status_removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+          <parameter type="GalagoStatus*" name="status" />
+        </parameters>
+      </signal>
+      <signal name="StatusUpdated" cname="status_updated" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+          <parameter type="GalagoStatus*" name="status" />
+          <parameter type="const-char*" name="attr_id" />
+        </parameters>
+      </signal>
+      <signal name="Changed" cname="changed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+        </parameters>
+      </signal>
+      <property name="Account" cname="account" type="GalagoAccount" readable="true" writeable="true" construct-only="true" />
+      <method name="AddStatus" cname="galago_presence_add_status">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoStatus*" name="status" />
+        </parameters>
+      </method>
+      <method name="ClearStatuses" cname="galago_presence_clear_statuses">
+        <return-type type="void" />
+      </method>
+      <method name="Compare" cname="galago_presence_compare">
+        <return-type type="int" />
+        <parameters>
+          <parameter type="const-GalagoPresence*" name="presence2" />
+        </parameters>
+      </method>
+      <method name="GetAccount" cname="galago_presence_get_account">
+        <return-type type="GalagoAccount*" />
+      </method>
+      <method name="GetActiveStatus" cname="galago_presence_get_active_status">
+        <return-type type="GalagoStatus*" />
+      </method>
+      <method name="GetIdleStartTime" cname="galago_presence_get_idle_start_time">
+        <return-type type="time_t" />
+      </method>
+      <method name="GetIdleTime" cname="galago_presence_get_idle_time">
+        <return-type type="time_t" />
+      </method>
+      <method name="GetStatus" cname="galago_presence_get_status">
+        <return-type type="GalagoStatus*" />
+        <parameters>
+          <parameter type="const-char*" name="status_id" />
+        </parameters>
+      </method>
+      <method name="GetStatuses" cname="galago_presence_get_statuses">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetType" cname="galago_presence_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="HasStatus" cname="galago_presence_has_status">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="status_id" />
+        </parameters>
+      </method>
+      <method name="HasStatusType" cname="galago_presence_has_status_type">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="GalagoStatusType" name="type" />
+        </parameters>
+      </method>
+      <method name="IsAvailable" cname="galago_presence_is_available">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsDiscarded" cname="galago_presence_is_discarded">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsIdle" cname="galago_presence_is_idle">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsStatusExclusive" cname="galago_presence_is_status_exclusive">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-char*" name="status_id" />
+        </parameters>
+      </method>
+      <method name="RemoveStatus" cname="galago_presence_remove_status">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="status_id" />
+        </parameters>
+      </method>
+      <method name="SetIdle" cname="galago_presence_set_idle">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="idle" />
+          <parameter type="time_t" name="idle_start_time" />
+        </parameters>
+      </method>
+      <method name="SetStatuses" cname="galago_presence_set_statuses">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="statuses" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Service" cname="GalagoService" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoServicePrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <signal name="AccountAdded" cname="account-added" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <signal name="AccountRemoved" cname="account-removed" when="LAST">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+          <parameter type="GalagoAccount*" name="account" />
+        </parameters>
+      </signal>
+      <property name="Flags" cname="flags" type="GalagoServiceFlags" readable="true" writeable="true" construct-only="true" />
+      <property name="Id" cname="id" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="Name" cname="name" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <method name="CreateAccount" cname="galago_service_create_account">
+        <return-type type="GalagoAccount*" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+          <parameter type="const-char*" name="username" />
+        </parameters>
+      </method>
+      <method name="GetAccount" cname="galago_service_get_account">
+        <return-type type="GalagoAccount*" />
+        <parameters>
+          <parameter type="const-char*" name="username" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetAccounts" cname="galago_service_get_accounts">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetFlags" cname="galago_service_get_flags">
+        <return-type type="GalagoServiceFlags" />
+      </method>
+      <method name="GetId" cname="galago_service_get_id">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetName" cname="galago_service_get_name">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="galago_service_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Normalize" cname="galago_service_normalize">
+        <return-type type="char*" />
+        <parameters>
+          <parameter type="const-char*" name="username" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Status" cname="GalagoStatus" parent="GalagoObject">
+      <field name="Priv" cname="priv" type="GalagoStatusPrivate*" />
+      <callback cname="reserved_1">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_2">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_3">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <callback cname="reserved_4">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void" name="arg1" />
+        </parameters>
+      </callback>
+      <property name="Primitive" cname="primitive" type="GalagoStatusType" readable="true" writeable="true" construct-only="true" />
+      <property name="Presence" cname="presence" type="GalagoPresence" readable="true" writeable="true" />
+      <property name="Id" cname="id" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="Name" cname="name" type="gchar*" readable="true" writeable="true" construct-only="true" />
+      <property name="Exclusive" cname="exclusive" type="gboolean" readable="true" writeable="true" />
+      <method name="Duplicate" cname="galago_status_duplicate">
+        <return-type type="GalagoStatus*" />
+      </method>
+      <method name="GetId" cname="galago_status_get_id">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetName" cname="galago_status_get_name">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetPresence" cname="galago_status_get_presence">
+        <return-type type="GalagoPresence*" />
+      </method>
+      <method name="GetPrimitive" cname="galago_status_get_primitive">
+        <return-type type="GalagoStatusType" />
+      </method>
+      <method name="GetType" cname="galago_status_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="IsAvailable" cname="galago_status_is_available">
+        <return-type type="gboolean" />
+      </method>
+      <method name="IsExclusive" cname="galago_status_is_exclusive">
+        <return-type type="gboolean" />
+      </method>
+      <constructor cname="galago_status_new">
+        <parameters>
+          <parameter type="GalagoStatusType" name="type" />
+          <parameter type="const-char*" name="id" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="gboolean" name="exclusive" />
+        </parameters>
+      </constructor>
+      <method name="SetPresence" cname="galago_status_set_presence">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPresence*" name="presence" />
+        </parameters>
+      </method>
+    </object>
+    <struct name="ContextOps" cname="GalagoContextOps">
+      <callback cname="service_added">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </callback>
+      <callback cname="service_removed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoService*" name="service" />
+        </parameters>
+      </callback>
+      <callback cname="person_added">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </callback>
+      <callback cname="person_removed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoPerson*" name="person" />
+        </parameters>
+      </callback>
+    </struct>
+    <struct name="KeyValue" cname="GalagoKeyValue" opaque="true">
+      <field name="Key" cname="key" type="char*" access="public" writeable="true" />
+      <field name="Value" cname="value" type="GValue*" access="public" writeable="true" />
+      <method name="Destroy" cname="galago_key_value_destroy">
+        <return-type type="void" />
+      </method>
+      <method name="GetKey" cname="galago_key_value_get_key">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetValue" cname="galago_key_value_get_value">
+        <return-type type="const-GValue*" />
+      </method>
+      <constructor cname="galago_key_value_new">
+        <parameters>
+          <parameter type="const-char*" name="key" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </constructor>
+      <method name="SetKey" cname="galago_key_value_set_key">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </method>
+      <method name="SetValue" cname="galago_key_value_set_value">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </method>
+    </struct>
+    <struct name="Value" cname="GalagoValue" opaque="true" hidden="1">
+      <method name="Destroy" cname="galago_value_destroy">
+        <return-type type="void" />
+      </method>
+      <method name="GetArray" cname="galago_value_get_array">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-void**" name="ret_array" />
+          <parameter type="gsize*" name="ret_size" />
+        </parameters>
+      </method>
+      <method name="GetBoolean" cname="galago_value_get_boolean">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetChar" cname="galago_value_get_char">
+        <return-type type="char" />
+      </method>
+      <method name="GetGtype" cname="galago_value_get_gtype">
+        <return-type type="GType" />
+      </method>
+      <method name="GetInt" cname="galago_value_get_int">
+        <return-type type="int" />
+      </method>
+      <method name="GetList" cname="galago_value_get_list">
+        <return-type type="GList*" />
+      </method>
+      <method name="GetLong" cname="galago_value_get_long">
+        <return-type type="long" />
+      </method>
+      <method name="GetObject" cname="galago_value_get_object">
+        <return-type type="void*" />
+      </method>
+      <method name="GetPointer" cname="galago_value_get_pointer">
+        <return-type type="void*" />
+      </method>
+      <method name="GetShort" cname="galago_value_get_short">
+        <return-type type="short" />
+      </method>
+      <method name="GetString" cname="galago_value_get_string">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetSubtype" cname="galago_value_get_subtype">
+        <return-type type="GalagoType" />
+      </method>
+      <method name="GetType" cname="galago_value_get_type">
+        <return-type type="GalagoType" />
+      </method>
+      <constructor cname="galago_value_new">
+        <parameters>
+          <parameter type="GalagoType" name="type" />
+          <parameter type="const-void*" name="data" />
+          <parameter type="void*" name="detail" />
+        </parameters>
+      </constructor>
+      <constructor cname="galago_value_new_array">
+        <parameters>
+          <parameter type="GalagoType" name="type" />
+          <parameter type="const-void*" name="array" />
+          <parameter type="gsize" name="size" />
+          <parameter type="void*" name="detail" />
+        </parameters>
+      </constructor>
+      <constructor cname="galago_value_new_list">
+        <parameters>
+          <parameter type="GalagoType" name="type" />
+          <parameter type="GList*" name="list" />
+          <parameter type="void*" name="detail" />
+        </parameters>
+      </constructor>
+      <constructor cname="galago_value_new_object">
+        <parameters>
+          <parameter type="GType" name="type" />
+          <parameter type="const-GObject*" name="obj" />
+        </parameters>
+      </constructor>
+      <method name="SetArray" cname="galago_value_set_array">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-void*" name="data" />
+          <parameter type="gsize" name="size" />
+        </parameters>
+      </method>
+      <method name="SetBoolean" cname="galago_value_set_boolean">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="data" />
+        </parameters>
+      </method>
+      <method name="SetChar" cname="galago_value_set_char">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="char" name="data" />
+        </parameters>
+      </method>
+      <method name="SetInt" cname="galago_value_set_int">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="int" name="data" />
+        </parameters>
+      </method>
+      <method name="SetList" cname="galago_value_set_list">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GList*" name="data" />
+        </parameters>
+      </method>
+      <method name="SetLong" cname="galago_value_set_long">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="long" name="data" />
+        </parameters>
+      </method>
+      <method name="SetObject" cname="galago_value_set_object">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void*" name="data" />
+        </parameters>
+      </method>
+      <method name="SetPointer" cname="galago_value_set_pointer">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="void*" name="data" />
+        </parameters>
+      </method>
+      <method name="SetShort" cname="galago_value_set_short">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="short" name="data" />
+        </parameters>
+      </method>
+      <method name="SetString" cname="galago_value_set_string">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="data" />
+        </parameters>
+      </method>
+      <method name="SetUchar" cname="galago_value_set_uchar">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="unsigned-char" name="data" />
+        </parameters>
+      </method>
+      <method name="SetUint" cname="galago_value_set_uint">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="unsigned-int" name="data" />
+        </parameters>
+      </method>
+      <method name="SetUlong" cname="galago_value_set_ulong">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="unsigned-long" name="data" />
+        </parameters>
+      </method>
+      <method name="SetUshort" cname="galago_value_set_ushort">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="unsigned-short" name="data" />
+        </parameters>
+      </method>
+    </struct>
+    <class name="Create" cname="GalagoCreate_" hidden="1">
+    </class>
+    <class name="Dbus" cname="GalagoDbus_" hidden="1">
+      <method name="MessageIterAppendObject" cname="galago_dbus_message_iter_append_object" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="const-GalagoObject*" name="object" />
+        </parameters>
+      </method>
+      <method name="MessageIterAppendObjectList" cname="galago_dbus_message_iter_append_object_list" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="GType" name="type" />
+          <parameter type="GList*" name="list" />
+        </parameters>
+      </method>
+      <method name="MessageIterAppendStringOrNil" cname="galago_dbus_message_iter_append_string_or_nil" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="const-char*" name="str" />
+        </parameters>
+      </method>
+      <method name="MessageIterGetObject" cname="galago_dbus_message_iter_get_object" shared="true">
+        <return-type type="void*" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="GType" name="type" />
+        </parameters>
+      </method>
+      <method name="MessageIterGetObjectList" cname="galago_dbus_message_iter_get_object_list" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+          <parameter type="GType" name="type" />
+        </parameters>
+      </method>
+      <method name="MessageIterGetStringOrNil" cname="galago_dbus_message_iter_get_string_or_nil" shared="true">
+        <return-type type="const-char*" />
+        <parameters>
+          <parameter type="DBusMessageIter*" name="iter" />
+        </parameters>
+      </method>
+      <method name="MessageNewMethodCall" cname="galago_dbus_message_new_method_call" shared="true">
+        <return-type type="DBusMessage*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="gboolean" name="reply" />
+          <parameter type="DBusMessageIter*" name="ret_iter" />
+        </parameters>
+      </method>
+      <method name="MessageNewMethodCallArgs" cname="galago_dbus_message_new_method_call_args" shared="true">
+        <return-type type="DBusMessage*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="gboolean" name="reply" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="MessageNewMethodCallVargs" cname="galago_dbus_message_new_method_call_vargs" shared="true">
+        <return-type type="DBusMessage*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="gboolean" name="reply" />
+          <parameter type="va_list" name="args" />
+        </parameters>
+      </method>
+      <method name="ObjectPushFull" cname="galago_dbus_object_push_full" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GalagoObject*" name="object" />
+        </parameters>
+      </method>
+      <method name="SendMessage" cname="galago_dbus_send_message" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="SendMessageWithReply" cname="galago_dbus_send_message_with_reply" shared="true">
+        <return-type type="void*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="GalagoValue*" name="return_type" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="SendMessageWithReplyList" cname="galago_dbus_send_message_with_reply_list" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="const-GalagoObject*" name="object" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="GList*" name="return_types" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Global" cname="GalagoGlobal">
+      <method name="GetClientObjPath" cname="galago_get_client_obj_path" shared="true">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetCore" cname="galago_get_core" shared="true">
+        <return-type type="GalagoCore*" />
+      </method>
+      <method name="GetDbusConn" cname="galago_get_dbus_conn" shared="true">
+        <return-type type="DBusConnection*" />
+      </method>
+      <method name="GetMe" cname="galago_get_me" shared="true">
+        <return-type type="GalagoPerson*" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetPeople" cname="galago_get_people" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetPerson" cname="galago_get_person" shared="true">
+        <return-type type="GalagoPerson*" />
+        <parameters>
+          <parameter type="const-char*" name="uid" />
+          <parameter type="GalagoOrigin" name="origin" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetService" cname="galago_get_service" shared="true">
+        <return-type type="GalagoService*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+          <parameter type="GalagoOrigin" name="origin" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetServices" cname="galago_get_services" shared="true">
+        <return-type type="GList*" />
+        <parameters>
+          <parameter type="GalagoOrigin" name="origin" />
+          <parameter type="gboolean" name="query" />
+        </parameters>
+      </method>
+      <method name="GetUid" cname="galago_get_uid" shared="true">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetWatchAll" cname="galago_get_watch_all" shared="true">
+        <return-type type="gboolean" />
+      </method>
+      <method name="SetWatchAll" cname="galago_set_watch_all" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="watch_all" />
+        </parameters>
+      </method>
+      <method cname="galago_is_initted" shared="true" name="IsInitted">
+        <return-type type="gboolean" />
+      </method>
+      <method cname="galago_is_registered" shared="true" name="IsRegistered">
+        <return-type type="gboolean" />
+      </method>
+      <method cname="galago_is_connected" shared="true" name="IsConnected">
+        <return-type type="gboolean" />
+      </method>
+      <method cname="galago_is_feed" shared="true" name="IsFeed">
+        <return-type type="gboolean" />
+      </method>
+      <method cname="galago_create_person" shared="true" name="CreatePerson">
+        <return-type type="GalagoPerson*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+        </parameters>
+      </method>
+      <method cname="galago_create_service" shared="true" name="CreateService">
+        <return-type type="GalagoService*" />
+        <parameters>
+          <parameter type="const-char*" name="id" />
+          <parameter type="const-char*" name="name" />
+          <parameter type="GalagoServiceFlags" name="flags" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Is" cname="GalagoIs_" hidden="1">
+      <method name="Daemon" cname="galago_is_daemon" shared="true">
+        <return-type type="gboolean" />
+      </method>
+      <method cname="galago_is_daemon_active" shared="true" name="IsDaemonActive">
+        <return-type type="gboolean" />
+      </method>
+    </class></namespace></api>
