@@ -1,22 +1,24 @@
+#
 %include	/usr/lib/rpm/macros.mono
+#
 Summary:	.NET language bindings for Galago
 Summary(pl):	Wi±zania Galago dla .NET
 Name:		dotnet-galago-sharp
-Version:	0.3.2
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.galago-project.org/files/releases/source/galago-sharp/galago-sharp-%{version}.tar.gz
-# Source0-md5:	90824eaf08bfbbbc0155ab08b623bced
+# Source0-md5:	87fb532cfe2085f81fe824c17f8836eb
+Source1:	galago-api.xml
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-pkgconfig.patch
 Patch2:		%{name}-destdir.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-dbus-sharp-devel
-BuildRequires:	libgalago-devel >= 0.3.2
+BuildRequires:	libgalago-devel >= 0.5.0
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 0.96
+BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
 ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x
 ExcludeArch:	i386
@@ -33,7 +35,7 @@ Summary:	Development part of galago-sharp
 Summary(pl):	Programistyczna czê¶æ galago-sharp
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libgalago-devel >= 0.3.2
+Requires:	libgalago-devel >= 0.5.0
 
 %description devel
 Tools for developing applications using galago-sharp.
@@ -55,15 +57,16 @@ galago-sharp.
 %{__autoheader}
 %{__automake}
 %configure
-%{__make} \
-	gapidir='%{_datadir}/gapi-2.0'
+
+cp %{SOURCE1} galago
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	gapidir='%{_datadir}/gapi-2.0'
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
