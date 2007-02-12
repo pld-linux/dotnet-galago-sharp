@@ -2,7 +2,7 @@
 %include	/usr/lib/rpm/macros.mono
 #
 Summary:	.NET language bindings for Galago
-Summary(pl):	Wi±zania Galago dla .NET
+Summary(pl.UTF-8):   WiÄ…zania Galago dla .NET
 Name:		dotnet-galago-sharp
 Version:	0.5.0
 Release:	1
@@ -27,12 +27,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This package provides bindings for .NET to Galago libraries.
 
-%description -l pl
-Pakiet ten dostarcza wi±zania dla .NET do bibliotek z Galago.
+%description -l pl.UTF-8
+Pakiet ten dostarcza wiÄ…zania dla .NET do bibliotek z Galago.
 
 %package devel
 Summary:	Development part of galago-sharp
-Summary(pl):	Programistyczna czê¶æ galago-sharp
+Summary(pl.UTF-8):   Programistyczna czÄ™Å›Ä‡ galago-sharp
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libgalago-devel >= 0.5.0
@@ -40,8 +40,8 @@ Requires:	libgalago-devel >= 0.5.0
 %description devel
 Tools for developing applications using galago-sharp.
 
-%description devel -l pl
-Narzêdzia potrzebne przy tworzeniu aplikacji korzystaj±cych z
+%description devel -l pl.UTF-8
+NarzÄ™dzia potrzebne przy tworzeniu aplikacji korzystajÄ…cych z
 galago-sharp.
 
 %prep
