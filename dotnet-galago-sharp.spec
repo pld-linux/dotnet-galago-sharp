@@ -3,7 +3,7 @@ Summary:	.NET language bindings for Galago
 Summary(pl):	Wi±zania Galago dla .NET
 Name:		dotnet-galago-sharp
 Version:	0.3.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.galago-project.org/files/releases/source/galago-sharp/galago-sharp-%{version}.tar.gz
@@ -18,7 +18,6 @@ BuildRequires:	libgalago-devel >= 0.3.2
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 0.96
 BuildRequires:	pkgconfig
-ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
