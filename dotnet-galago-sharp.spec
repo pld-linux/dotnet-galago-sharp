@@ -3,7 +3,7 @@ Summary:	.NET language bindings for Galago
 Summary(pl):	Wi±zania Galago dla .NET
 Name:		dotnet-galago-sharp
 Version:	0.3.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Libraries
 Source0:	http://www.galago-project.org/files/releases/source/galago-sharp/galago-sharp-%{version}.tar.gz
