@@ -16,6 +16,7 @@ Patch1:		%{name}-pkgconfig.patch
 Patch2:		%{name}-destdir.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	dotnet-gtk-sharp2-devel
 BuildRequires:	libgalago-devel >= 0.5.0
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
