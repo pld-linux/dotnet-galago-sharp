@@ -1,5 +1,4 @@
 #
-%include	/usr/lib/rpm/macros.mono
 #
 Summary:	.NET language bindings for Galago
 Summary(pl.UTF-8):	Wiązania Galago dla .NET
